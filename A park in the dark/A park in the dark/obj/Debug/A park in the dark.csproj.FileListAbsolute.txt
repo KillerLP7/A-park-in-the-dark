@@ -1,0 +1,11 @@
+D:\Games\A-park-in-the-dark\A park in the dark\A park in the dark\bin\Debug\A park in the dark.exe.config
+D:\Games\A-park-in-the-dark\A park in the dark\A park in the dark\bin\Debug\A park in the dark.exe
+D:\Games\A-park-in-the-dark\A park in the dark\A park in the dark\bin\Debug\A park in the dark.pdb
+D:\Games\A-park-in-the-dark\A park in the dark\A park in the dark\obj\Debug\A park in the dark.csproj.AssemblyReference.cache
+D:\Games\A-park-in-the-dark\A park in the dark\A park in the dark\obj\Debug\A_park_in_the_dark.FrmSimulation.resources
+D:\Games\A-park-in-the-dark\A park in the dark\A park in the dark\obj\Debug\A_park_in_the_dark.Properties.Resources.resources
+D:\Games\A-park-in-the-dark\A park in the dark\A park in the dark\obj\Debug\A park in the dark.csproj.GenerateResource.cache
+D:\Games\A-park-in-the-dark\A park in the dark\A park in the dark\obj\Debug\A park in the dark.csproj.CoreCompileInputs.cache
+D:\Games\A-park-in-the-dark\A park in the dark\A park in the dark\obj\Debug\A park in the dark.exe
+D:\Games\A-park-in-the-dark\A park in the dark\A park in the dark\obj\Debug\A park in the dark.pdb
+D:\Games\A-park-in-the-dark\A park in the dark\A park in the dark\obj\Debug\A_park_in_the_dark.FrmSearch.resources
