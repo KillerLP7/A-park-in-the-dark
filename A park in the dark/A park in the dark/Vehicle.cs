@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace A_park_in_the_dark
+﻿namespace A_park_in_the_dark
 {
     public class Vehicle
     {
@@ -26,5 +20,4 @@ namespace A_park_in_the_dark
     {
         // Motorbike-specific properties and methods can be added here
     }
-
 }

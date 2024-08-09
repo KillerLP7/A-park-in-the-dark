@@ -1,48 +1,57 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace A_park_in_the_dark
 {
     public class ParkingBuilding
     {
-        public string Pos { get; set; }
-        public string Building { get; set; }
+        public string BuildingName { get; set; }
+        public List<Level> Levels { get; set; } = new List<Level>();
 
-        public void GetTotalFreeParkingSlots(int[] allLevels)
+        public ParkingBuilding(string buildingName, int totalLevels, int parkingSlotsPerLevel)
         {
-            // Logic to get the total number of free parking slots
+            BuildingName = buildingName;
+
+            // Erstellen der Levels
+            for (int i = 0; i < totalLevels; i++)
+            {
+                Levels.Add(new Level(parkingSlotsPerLevel));
+            }
         }
 
-        public void GetVehiclePos(string vehicleType, string vehicleNameplate, int currentParkingSlot, int currentLevel)
+        // Methode zum Abrufen eines Levels
+        public Level GetLevel(int levelNumber)
         {
-            // Logic to get the position of a vehicle
+            return Levels[levelNumber - 1]; // Level-Nummer ist 1-basiert
         }
 
-        public string AskForVehiclePosition(string nameplate)
+        // Weitere Methoden, wie du sie benötigst
+        public bool AddVehicle(int levelNumber, Vehicle vehicle)
         {
-            // Logic to ask for the position of a vehicle
-            return "position";
-        }
-
-        public void DirectToFreeSpace(string type, string nameplate, bool isEntering)
-        {
-            // Logic to direct a vehicle to a free space
-        }
-
-        public bool AddVehicle(Vehicle vehicle)
-        {
-            // Logic to add a vehicle to the parking building
-            return true;
+            var level = GetLevel(levelNumber);
+            var freeSlot = level.FindFreeSlot();
+            if (freeSlot != null)
+            {
+                freeSlot.AssignVehicle(vehicle);
+                return true;
+            }
+            return false;
         }
 
         public bool RemoveVehicle(string nameplate)
         {
-            // Logic to remove a vehicle from the parking building
-            return true;
+            foreach (var level in Levels)
+            {
+                foreach (var slot in level.ParkingSlots)
+                {
+                    if (!slot.ParkingSlotIsFree && slot.GetCurrentNameplate(nameplate) == nameplate)
+                    {
+                        slot.RemoveVehicle();
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
-
 }

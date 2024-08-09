@@ -1,32 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace A_park_in_the_dark
 {
     public class Level
     {
-        public int[] Levels { get; set; }
-        public int ParkingSlots { get; set; }
+        public List<ParkingSlot> ParkingSlots { get; set; } = new List<ParkingSlot>();
 
-        public int GetParkingSlots(int totalParkingSlots)
+        public Level(int parkingSlotsPerLevel)
         {
-            return totalParkingSlots;
+            // Erstellen der Parkplätze
+            for (int i = 0; i < parkingSlotsPerLevel; i++)
+            {
+                ParkingSlots.Add(new ParkingSlot { ParkingSlotNr = i + 1, ParkingSlotIsFree = true });
+            }
         }
 
-        public string GetVehicleOnParkingSlot(int currentParkingSlotNr, string vehicleNamePlate)
-        {
-            // Logic to get the vehicle on a specific parking slot
-            return vehicleNamePlate;
-        }
-
+        // Methode, um einen freien Parkplatz zu finden
         public ParkingSlot FindFreeSlot()
         {
-            // Logic to find a free parking slot
-            return new ParkingSlot();
+            return ParkingSlots.Find(slot => slot.ParkingSlotIsFree);
         }
     }
-
 }

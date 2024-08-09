@@ -1,31 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace A_park_in_the_dark
+﻿namespace A_park_in_the_dark
 {
     public class ParkingSlot
     {
         public int ParkingSlotNr { get; set; }
-        public int[] ParkingSlots { get; set; }
         public bool ParkingSlotIsFree { get; set; }
+
+        public Vehicle AssignedVehicle { get; private set; }
 
         public string GetCurrentNameplate(string currentNamePlate)
         {
-            return currentNamePlate;
+            return AssignedVehicle?.CurrentNamePlate;
         }
 
         public void AssignVehicle(Vehicle vehicle)
         {
-            // Logic to assign a vehicle to the parking slot
+            AssignedVehicle = vehicle;
+            ParkingSlotIsFree = false;
         }
 
         public void RemoveVehicle()
         {
-            // Logic to remove a vehicle from the parking slot
+            AssignedVehicle = null;
+            ParkingSlotIsFree = true;
         }
     }
-
 }
