@@ -42,21 +42,22 @@
             this.btnCreate = new System.Windows.Forms.Button();
             this.lblLevel = new System.Windows.Forms.Label();
             this.lblParkingSlots = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbxCreateBuilding = new System.Windows.Forms.GroupBox();
             this.btnNextBuilding = new System.Windows.Forms.Button();
             this.btnPrevBuilding = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnAddVehicle = new System.Windows.Forms.Button();
             this.tbxNameplate = new System.Windows.Forms.TextBox();
             this.cbxType = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbxAddVehicle = new System.Windows.Forms.GroupBox();
             this.btnNextSlot = new System.Windows.Forms.Button();
             this.btnPrevSlot = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.gbxSimulation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudLevels)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudParkingSlots)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbxCreateBuilding.SuspendLayout();
+            this.gbxAddVehicle.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCurrentLevel
@@ -189,20 +190,22 @@
             this.lblParkingSlots.TabIndex = 20;
             this.lblParkingSlots.Text = "Parkingslots per Level:";
             // 
-            // groupBox1
+            // gbxCreateBuilding
             // 
-            this.groupBox1.Controls.Add(this.lblParkingSlots);
-            this.groupBox1.Controls.Add(this.lblLevel);
-            this.groupBox1.Controls.Add(this.btnCreate);
-            this.groupBox1.Controls.Add(this.nudParkingSlots);
-            this.groupBox1.Controls.Add(this.tbxBuildingName);
-            this.groupBox1.Controls.Add(this.nudLevels);
-            this.groupBox1.Location = new System.Drawing.Point(872, 286);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(179, 152);
-            this.groupBox1.TabIndex = 21;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Create Building";
+            this.gbxCreateBuilding.AutoSize = true;
+            this.gbxCreateBuilding.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.gbxCreateBuilding.Controls.Add(this.lblParkingSlots);
+            this.gbxCreateBuilding.Controls.Add(this.lblLevel);
+            this.gbxCreateBuilding.Controls.Add(this.btnCreate);
+            this.gbxCreateBuilding.Controls.Add(this.nudParkingSlots);
+            this.gbxCreateBuilding.Controls.Add(this.tbxBuildingName);
+            this.gbxCreateBuilding.Controls.Add(this.nudLevels);
+            this.gbxCreateBuilding.Location = new System.Drawing.Point(872, 233);
+            this.gbxCreateBuilding.Name = "gbxCreateBuilding";
+            this.gbxCreateBuilding.Size = new System.Drawing.Size(175, 163);
+            this.gbxCreateBuilding.TabIndex = 21;
+            this.gbxCreateBuilding.TabStop = false;
+            this.gbxCreateBuilding.Text = "Create Building";
             // 
             // btnNextBuilding
             // 
@@ -238,7 +241,7 @@
             // 
             // btnAddVehicle
             // 
-            this.btnAddVehicle.Location = new System.Drawing.Point(16, 88);
+            this.btnAddVehicle.Location = new System.Drawing.Point(6, 119);
             this.btnAddVehicle.Name = "btnAddVehicle";
             this.btnAddVehicle.Size = new System.Drawing.Size(121, 23);
             this.btnAddVehicle.TabIndex = 0;
@@ -248,7 +251,7 @@
             // 
             // tbxNameplate
             // 
-            this.tbxNameplate.Location = new System.Drawing.Point(16, 62);
+            this.tbxNameplate.Location = new System.Drawing.Point(6, 93);
             this.tbxNameplate.Name = "tbxNameplate";
             this.tbxNameplate.Size = new System.Drawing.Size(121, 20);
             this.tbxNameplate.TabIndex = 1;
@@ -257,23 +260,24 @@
             // 
             this.cbxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxType.FormattingEnabled = true;
-            this.cbxType.Location = new System.Drawing.Point(16, 35);
+            this.cbxType.Location = new System.Drawing.Point(6, 66);
             this.cbxType.Name = "cbxType";
             this.cbxType.Size = new System.Drawing.Size(121, 21);
             this.cbxType.TabIndex = 2;
             this.cbxType.SelectedIndexChanged += new System.EventHandler(this.cbxType_SelectedIndexChanged);
             // 
-            // groupBox2
+            // gbxAddVehicle
             // 
-            this.groupBox2.Controls.Add(this.cbxType);
-            this.groupBox2.Controls.Add(this.tbxNameplate);
-            this.groupBox2.Controls.Add(this.btnAddVehicle);
-            this.groupBox2.Location = new System.Drawing.Point(716, 315);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(150, 123);
-            this.groupBox2.TabIndex = 22;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Add Vehicle";
+            this.gbxAddVehicle.Controls.Add(this.btnSearch);
+            this.gbxAddVehicle.Controls.Add(this.cbxType);
+            this.gbxAddVehicle.Controls.Add(this.tbxNameplate);
+            this.gbxAddVehicle.Controls.Add(this.btnAddVehicle);
+            this.gbxAddVehicle.Location = new System.Drawing.Point(733, 233);
+            this.gbxAddVehicle.Name = "gbxAddVehicle";
+            this.gbxAddVehicle.Size = new System.Drawing.Size(133, 205);
+            this.gbxAddVehicle.TabIndex = 22;
+            this.gbxAddVehicle.TabStop = false;
+            this.gbxAddVehicle.Text = "Add Vehicle";
             // 
             // btnNextSlot
             // 
@@ -297,6 +301,16 @@
             this.btnPrevSlot.UseVisualStyleBackColor = true;
             this.btnPrevSlot.Click += new System.EventHandler(this.btnPrevSlot_Click);
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(6, 21);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(121, 39);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // FrmSimulation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,8 +320,8 @@
             this.Controls.Add(this.btnPrevSlot);
             this.Controls.Add(this.btnNextBuilding);
             this.Controls.Add(this.btnPrevBuilding);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbxAddVehicle);
+            this.Controls.Add(this.gbxCreateBuilding);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.lblBuildingInfo);
             this.Controls.Add(this.lblSlotInfo);
@@ -321,10 +335,10 @@
             this.gbxSimulation.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudLevels)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudParkingSlots)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbxCreateBuilding.ResumeLayout(false);
+            this.gbxCreateBuilding.PerformLayout();
+            this.gbxAddVehicle.ResumeLayout(false);
+            this.gbxAddVehicle.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,7 +358,7 @@
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Label lblLevel;
         private System.Windows.Forms.Label lblParkingSlots;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbxCreateBuilding;
         private System.Windows.Forms.Panel panView;
         private System.Windows.Forms.Button btnNextBuilding;
         private System.Windows.Forms.Button btnPrevBuilding;
@@ -352,9 +366,10 @@
         private System.Windows.Forms.Button btnAddVehicle;
         private System.Windows.Forms.TextBox tbxNameplate;
         private System.Windows.Forms.ComboBox cbxType;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbxAddVehicle;
         private System.Windows.Forms.Button btnNextSlot;
         private System.Windows.Forms.Button btnPrevSlot;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
 

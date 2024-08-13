@@ -29,6 +29,7 @@ namespace A_park_in_the_dark
 
         private void InitializeVehicleTypes()
         {
+            gbxAddVehicle.Visible = false;
             cbxType.Items.Add("Car");
             cbxType.Items.Add("Motorbike");
             cbxType.SelectedIndex = 0; // Setzt den Standardwert auf "Car"
@@ -40,6 +41,7 @@ namespace A_park_in_the_dark
             {
                 currentLevel++;
                 lblCurrentLevel.Text = currentLevel.ToString();
+                DisplaySlotInfo();
                 DisplayParkingSlotsForLevel(currentLevel);
             }
         }
@@ -50,6 +52,7 @@ namespace A_park_in_the_dark
             {
                 currentLevel--;
                 lblCurrentLevel.Text = currentLevel.ToString();
+                DisplaySlotInfo();
                 DisplayParkingSlotsForLevel(currentLevel);
             }
         }
@@ -98,7 +101,13 @@ namespace A_park_in_the_dark
             currentLevel = 1;
             lblCurrentLevel.Text = currentLevel.ToString();
 
+            if (parkingBuildings.Count > 0)
+            {
+                gbxAddVehicle.Visible = true;
+            }
+
             DisplayParkingSlotsForLevel(currentLevel);
+            DisplaySlotInfo();
             DisplayBuildingInfo(); // Gebäudeinformationen aktualisieren
         }
 
@@ -133,7 +142,8 @@ namespace A_park_in_the_dark
                 {
                     Width = btnWidth,
                     Height = btnHeight,
-                    Text = $"L{level}S{slot + 1}",
+                    Text = $"L{level}\nS{slot + 1}",
+
                     BackColor = Color.Green // Frei -> Grün
                 };
                 btnParkingSlot.Click += BtnParkingSlot_Click;
@@ -313,8 +323,16 @@ namespace A_park_in_the_dark
                 freeSlot.ParkingSlotIsFree = false;
                 freeSlot.SlotState = 1; // Setze den Slot als besetzt
 
+                // Button-Farbe aktualisieren
+                Button clickedButton = panView.Controls.OfType<Button>().FirstOrDefault(b => (int)b.Tag == freeSlot.ParkingSlotNr - 1);
+                if (clickedButton != null)
+                {
+                    clickedButton.BackColor = Color.Red; // Nach Entfernung des Fahrzeugs wird der Slot frei
+                }
+
                 MessageBox.Show($"Fahrzeug {nameplate} wurde auf Slot L{currentLevel}S{freeSlot.ParkingSlotNr} geparkt.");
                 DisplaySlotInfo();
+                DisplayBuildingInfo();
             }
             else
             {
@@ -416,5 +434,11 @@ namespace A_park_in_the_dark
         }
 
         #endregion
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            FrmSearch frmSearch = new FrmSearch();
+            frmSearch.ShowDialog();
+        }
     }
 }
