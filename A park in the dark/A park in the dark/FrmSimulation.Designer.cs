@@ -32,6 +32,7 @@
             this.btnLevelUp = new System.Windows.Forms.Button();
             this.btnLevelDown = new System.Windows.Forms.Button();
             this.gbxSimulation = new System.Windows.Forms.GroupBox();
+            this.panView = new System.Windows.Forms.Panel();
             this.btnParkingSlot = new System.Windows.Forms.Button();
             this.lblSlotInfo = new System.Windows.Forms.Label();
             this.lblBuildingInfo = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@
             this.lblLevel = new System.Windows.Forms.Label();
             this.lblParkingSlots = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panView = new System.Windows.Forms.Panel();
             this.btnNextBuilding = new System.Windows.Forms.Button();
             this.btnPrevBuilding = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
@@ -101,6 +101,16 @@
             this.gbxSimulation.TabStop = false;
             this.gbxSimulation.Text = "Building";
             // 
+            // panView
+            // 
+            this.panView.AutoScroll = true;
+            this.panView.BackColor = System.Drawing.SystemColors.Control;
+            this.panView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panView.Location = new System.Drawing.Point(3, 16);
+            this.panView.Name = "panView";
+            this.panView.Size = new System.Drawing.Size(385, 407);
+            this.panView.TabIndex = 1;
+            // 
             // btnParkingSlot
             // 
             this.btnParkingSlot.Location = new System.Drawing.Point(6, 19);
@@ -113,7 +123,7 @@
             // 
             this.lblSlotInfo.Location = new System.Drawing.Point(462, 31);
             this.lblSlotInfo.Name = "lblSlotInfo";
-            this.lblSlotInfo.Size = new System.Drawing.Size(532, 47);
+            this.lblSlotInfo.Size = new System.Drawing.Size(532, 117);
             this.lblSlotInfo.TabIndex = 11;
             this.lblSlotInfo.Text = "Vehicle Info";
             // 
@@ -194,16 +204,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create Building";
             // 
-            // panView
-            // 
-            this.panView.AutoScroll = true;
-            this.panView.BackColor = System.Drawing.SystemColors.Control;
-            this.panView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panView.Location = new System.Drawing.Point(3, 16);
-            this.panView.Name = "panView";
-            this.panView.Size = new System.Drawing.Size(385, 407);
-            this.panView.TabIndex = 1;
-            // 
             // btnNextBuilding
             // 
             this.btnNextBuilding.Font = new System.Drawing.Font("Wingdings", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
@@ -228,7 +228,7 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(465, 108);
+            this.btnRemove.Location = new System.Drawing.Point(465, 151);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(530, 23);
             this.btnRemove.TabIndex = 14;

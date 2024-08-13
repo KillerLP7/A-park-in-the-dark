@@ -1,0 +1,150 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\My Games\\A-park-in-the-dark\\A park in the dark\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9647A918-EC03-4B3D-AFF2-1E17678E758A}|A park in the dark\\A park in the dark.csproj|E:\\My Games\\A-park-in-the-dark\\A park in the dark\\a park in the dark\\frmsimulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9647A918-EC03-4B3D-AFF2-1E17678E758A}|A park in the dark\\A park in the dark.csproj|solutionrelative:a park in the dark\\frmsimulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9647A918-EC03-4B3D-AFF2-1E17678E758A}|A park in the dark\\A park in the dark.csproj|e:\\my games\\a-park-in-the-dark\\a park in the dark\\a park in the dark\\frmsimulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9647A918-EC03-4B3D-AFF2-1E17678E758A}|A park in the dark\\A park in the dark.csproj|solutionrelative:a park in the dark\\frmsimulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9647A918-EC03-4B3D-AFF2-1E17678E758A}|A park in the dark\\A park in the dark.csproj|E:\\My Games\\A-park-in-the-dark\\A park in the dark\\a park in the dark\\parkingbuilding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9647A918-EC03-4B3D-AFF2-1E17678E758A}|A park in the dark\\A park in the dark.csproj|solutionrelative:a park in the dark\\parkingbuilding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9647A918-EC03-4B3D-AFF2-1E17678E758A}|A park in the dark\\A park in the dark.csproj|E:\\My Games\\A-park-in-the-dark\\A park in the dark\\a park in the dark\\parkingslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9647A918-EC03-4B3D-AFF2-1E17678E758A}|A park in the dark\\A park in the dark.csproj|solutionrelative:a park in the dark\\parkingslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9647A918-EC03-4B3D-AFF2-1E17678E758A}|A park in the dark\\A park in the dark.csproj|E:\\My Games\\A-park-in-the-dark\\A park in the dark\\a park in the dark\\frmsearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9647A918-EC03-4B3D-AFF2-1E17678E758A}|A park in the dark\\A park in the dark.csproj|solutionrelative:a park in the dark\\frmsearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9647A918-EC03-4B3D-AFF2-1E17678E758A}|A park in the dark\\A park in the dark.csproj|E:\\My Games\\A-park-in-the-dark\\A park in the dark\\a park in the dark\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9647A918-EC03-4B3D-AFF2-1E17678E758A}|A park in the dark\\A park in the dark.csproj|solutionrelative:a park in the dark\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9647A918-EC03-4B3D-AFF2-1E17678E758A}|A park in the dark\\A park in the dark.csproj|E:\\My Games\\A-park-in-the-dark\\A park in the dark\\a park in the dark\\level.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9647A918-EC03-4B3D-AFF2-1E17678E758A}|A park in the dark\\A park in the dark.csproj|solutionrelative:a park in the dark\\level.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9647A918-EC03-4B3D-AFF2-1E17678E758A}|A park in the dark\\A park in the dark.csproj|E:\\My Games\\A-park-in-the-dark\\A park in the dark\\a park in the dark\\frmsimulation.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9647A918-EC03-4B3D-AFF2-1E17678E758A}|A park in the dark\\A park in the dark.csproj|solutionrelative:a park in the dark\\frmsimulation.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrmSimulation.cs [Entwurf]",
+              "DocumentMoniker": "E:\\My Games\\A-park-in-the-dark\\A park in the dark\\A park in the dark\\FrmSimulation.cs",
+              "RelativeDocumentMoniker": "A park in the dark\\FrmSimulation.cs",
+              "ToolTip": "E:\\My Games\\A-park-in-the-dark\\A park in the dark\\A park in the dark\\FrmSimulation.cs [Entwurf]",
+              "RelativeToolTip": "A park in the dark\\FrmSimulation.cs [Entwurf]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T22:20:33.125Z",
+              "EditorCaption": " [Entwurf]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FrmSimulation.cs",
+              "DocumentMoniker": "E:\\My Games\\A-park-in-the-dark\\A park in the dark\\A park in the dark\\FrmSimulation.cs",
+              "RelativeDocumentMoniker": "A park in the dark\\FrmSimulation.cs",
+              "ToolTip": "E:\\My Games\\A-park-in-the-dark\\A park in the dark\\A park in the dark\\FrmSimulation.cs",
+              "RelativeToolTip": "A park in the dark\\FrmSimulation.cs",
+              "ViewState": "AQIAAGcBAAAAAAAAAAAqwHABAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T22:20:33.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FrmSearch.cs [Entwurf]",
+              "DocumentMoniker": "E:\\My Games\\A-park-in-the-dark\\A park in the dark\\A park in the dark\\FrmSearch.cs",
+              "RelativeDocumentMoniker": "A park in the dark\\FrmSearch.cs",
+              "ToolTip": "D:\\Games\\A-park-in-the-dark\\A park in the dark\\A park in the dark\\FrmSearch.cs [Entwurf]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-08-12T22:20:33.167Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ParkingBuilding.cs",
+              "DocumentMoniker": "E:\\My Games\\A-park-in-the-dark\\A park in the dark\\A park in the dark\\ParkingBuilding.cs",
+              "RelativeDocumentMoniker": "A park in the dark\\ParkingBuilding.cs",
+              "ToolTip": "E:\\My Games\\A-park-in-the-dark\\A park in the dark\\A park in the dark\\ParkingBuilding.cs",
+              "RelativeToolTip": "A park in the dark\\ParkingBuilding.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAwwDIAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T22:20:33.168Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Level.cs",
+              "DocumentMoniker": "E:\\My Games\\A-park-in-the-dark\\A park in the dark\\A park in the dark\\Level.cs",
+              "RelativeDocumentMoniker": "A park in the dark\\Level.cs",
+              "ToolTip": "E:\\My Games\\A-park-in-the-dark\\A park in the dark\\A park in the dark\\Level.cs",
+              "RelativeToolTip": "A park in the dark\\Level.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T22:20:33.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ParkingSlot.cs",
+              "DocumentMoniker": "E:\\My Games\\A-park-in-the-dark\\A park in the dark\\A park in the dark\\ParkingSlot.cs",
+              "RelativeDocumentMoniker": "A park in the dark\\ParkingSlot.cs",
+              "ToolTip": "E:\\My Games\\A-park-in-the-dark\\A park in the dark\\A park in the dark\\ParkingSlot.cs",
+              "RelativeToolTip": "A park in the dark\\ParkingSlot.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAASwAsAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T22:20:33.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Vehicle.cs",
+              "DocumentMoniker": "E:\\My Games\\A-park-in-the-dark\\A park in the dark\\A park in the dark\\Vehicle.cs",
+              "RelativeDocumentMoniker": "A park in the dark\\Vehicle.cs",
+              "ToolTip": "E:\\My Games\\A-park-in-the-dark\\A park in the dark\\A park in the dark\\Vehicle.cs",
+              "RelativeToolTip": "A park in the dark\\Vehicle.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T22:20:33.169Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FrmSimulation.Designer.cs",
+              "DocumentMoniker": "E:\\My Games\\A-park-in-the-dark\\A park in the dark\\A park in the dark\\FrmSimulation.Designer.cs",
+              "RelativeDocumentMoniker": "A park in the dark\\FrmSimulation.Designer.cs",
+              "ToolTip": "E:\\My Games\\A-park-in-the-dark\\A park in the dark\\A park in the dark\\FrmSimulation.Designer.cs",
+              "RelativeToolTip": "A park in the dark\\FrmSimulation.Designer.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAASwFEAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T22:20:33.17Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

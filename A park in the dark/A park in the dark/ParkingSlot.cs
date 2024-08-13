@@ -4,10 +4,11 @@
     {
         public int ParkingSlotNr { get; set; }
         public bool ParkingSlotIsFree { get; set; }
+        public int SlotState { get; set; } // 0 = free, 1 = occupied, 2 = blocked
 
         public Vehicle AssignedVehicle { get; private set; }
 
-        public string GetCurrentNameplate(string currentNamePlate)
+        public string GetCurrentNameplate()
         {
             return AssignedVehicle?.CurrentNamePlate;
         }
@@ -16,12 +17,14 @@
         {
             AssignedVehicle = vehicle;
             ParkingSlotIsFree = false;
+            SlotState = 1; // Setze SlotState auf 'besetzt'
         }
 
         public void RemoveVehicle()
         {
             AssignedVehicle = null;
             ParkingSlotIsFree = true;
+            SlotState = 0; // Setze SlotState auf 'frei'
         }
     }
 }

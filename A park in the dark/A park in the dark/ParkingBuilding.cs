@@ -44,11 +44,11 @@ namespace A_park_in_the_dark
             {
                 foreach (var slot in level.ParkingSlots)
                 {
-                    if (!slot.ParkingSlotIsFree && slot.GetCurrentNameplate(nameplate) == nameplate)
-                    {
-                        slot.RemoveVehicle();
-                        return true;
-                    }
+                    //if (!slot.ParkingSlotIsFree && slot.GetCurrentNameplate(nameplate) == nameplate)
+                    //{
+                    //    slot.RemoveVehicle();
+                    //    return true;
+                    //}
                 }
             }
             return false;

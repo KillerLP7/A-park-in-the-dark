@@ -13,15 +13,25 @@ namespace A_park_in_the_dark
         private int totalLevels = 0;
         private int parkingSlotsPerLevel = 0;
         private List<ParkingBuilding> parkingBuildings = new List<ParkingBuilding>();
+        private int currentBuildingIndex = 0;
+        private int selectedSlotIndex = 0;
 
         public FrmSimulation()
         {
             InitializeComponent();
+            InitializeVehicleTypes();
         }
 
         private void FrmSimulation_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void InitializeVehicleTypes()
+        {
+            cbxType.Items.Add("Car");
+            cbxType.Items.Add("Motorbike");
+            cbxType.SelectedIndex = 0; // Setzt den Standardwert auf "Car"
         }
 
         private void btnLevelUp_Click(object sender, EventArgs e)
@@ -109,33 +119,34 @@ namespace A_park_in_the_dark
             int offsetY = 10; // Abstand von der oberen Seite des Panels
             int maxColumns = (panView.Width - offsetX - margin) / (btnWidth + margin);
 
-            // Debug: Überprüfen, ob die Berechnungen korrekt sind
-            Console.WriteLine($"Panel Width: {panView.Width}, Max Columns: {maxColumns}");
+            var currentLevelObj = parkingBuildings[currentBuildingIndex].Levels[level - 1];
 
-            Console.WriteLine("We have: "+ parkingSlotsPerLevel);
             for (int slot = 0; slot < parkingSlotsPerLevel; slot++)
             {
+                // Slot initialisieren
+                var parkingSlot = currentLevelObj.ParkingSlots[slot];
+                parkingSlot.SlotState = 0; // Setze den Slot auf 'frei'
+                parkingSlot.ParkingSlotIsFree = true; // Markiere den Slot als frei
+
+                // Button erstellen
                 Button btnParkingSlot = new Button
                 {
                     Width = btnWidth,
                     Height = btnHeight,
-                    Text = $"L{level}S{slot + 1}"
+                    Text = $"L{level}S{slot + 1}",
+                    BackColor = Color.Green // Frei -> Grün
                 };
                 btnParkingSlot.Click += BtnParkingSlot_Click;
 
                 int row = slot / maxColumns;
                 int col = slot % maxColumns;
 
-                // Debug: Überprüfen der Positionen
-                int posX = offsetX + col * (btnWidth + margin);
-                int posY = offsetY + row * (btnHeight + margin);
-                Console.WriteLine($"Slot {slot}: Position ({posX}, {posY})");
-
-                btnParkingSlot.Location = new Point(posX, posY);
+                btnParkingSlot.Location = new Point(offsetX + col * (btnWidth + margin), offsetY + row * (btnHeight + margin));
                 panView.Controls.Add(btnParkingSlot);
-
-                // Sicherstellen, dass der Button im Vordergrund ist
                 btnParkingSlot.BringToFront();
+
+                // Button-Tag speichern, um später den Slot zu identifizieren
+                btnParkingSlot.Tag = slot;
             }
 
             // Panel automatisch scrollen lassen, falls die Buttons über das Panel hinausgehen
@@ -145,10 +156,36 @@ namespace A_park_in_the_dark
         private void BtnParkingSlot_Click(object sender, EventArgs e)
         {
             Button clickedButton = sender as Button;
-            MessageBox.Show($"Parkplatz {clickedButton.Text} ausgewählt.");
+            int slotIndex = (int)clickedButton.Tag; // Den Slot-Index abrufen
+            var currentLevelObj = parkingBuildings[currentBuildingIndex].Levels[currentLevel - 1];
+            var selectedSlot = currentLevelObj.ParkingSlots[slotIndex];
+
+            // SlotState zyklisch ändern
+            selectedSlot.SlotState = (selectedSlot.SlotState + 1) % 3;
+
+            // Den Slot als frei oder besetzt markieren basierend auf dem neuen Zustand
+            selectedSlot.ParkingSlotIsFree = (selectedSlot.SlotState == 0);
+
+            // Button-Farbe basierend auf dem SlotState ändern
+            switch (selectedSlot.SlotState)
+            {
+                case 0:
+                    clickedButton.BackColor = Color.Green; // Frei
+                    break;
+                case 1:
+                    clickedButton.BackColor = Color.Red; // Besetzt
+                    break;
+                case 2:
+                    clickedButton.BackColor = Color.Black; // Blockiert
+                    break;
+            }
+
+            // Slot-Info und Visibility von btnRemove aktualisieren, falls der aktuelle Slot ausgewählt ist
+            selectedSlotIndex = slotIndex;
+            DisplaySlotInfo();
         }
 
-        private int currentBuildingIndex = 0;
+        //private int currentBuildingIndex = 0;
 
         private void btnNextBuilding_Click(object sender, EventArgs e)
         {
@@ -216,33 +253,168 @@ namespace A_park_in_the_dark
         #region ---------->!ToDo!<----------
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            //Soll das momentane Fahrzeug, aus der Liste entfernen, slotState wird zu 0
+            var currentLevelObj = parkingBuildings[currentBuildingIndex].Levels[currentLevel - 1];
+
+            // Überprüfen, ob ein Fahrzeug auf dem aktuellen Parkplatz vorhanden ist
+            if (currentLevelObj.ParkingSlots[selectedSlotIndex].ParkingSlotIsFree == false)
+            {
+                // Fahrzeug entfernen
+                currentLevelObj.ParkingSlots[selectedSlotIndex].RemoveVehicle();
+                currentLevelObj.ParkingSlots[selectedSlotIndex].ParkingSlotIsFree = true; // Setze den Slot als frei
+                currentLevelObj.ParkingSlots[selectedSlotIndex].SlotState = 0;
+
+                MessageBox.Show($"Fahrzeug auf Slot L{currentLevel}S{selectedSlotIndex + 1} wurde entfernt.");
+
+                // Button-Farbe aktualisieren
+                Button clickedButton = panView.Controls.OfType<Button>().FirstOrDefault(b => (int)b.Tag == selectedSlotIndex);
+                if (clickedButton != null)
+                {
+                    clickedButton.BackColor = Color.Green; // Nach Entfernung des Fahrzeugs wird der Slot frei
+                }
+
+                DisplaySlotInfo(); // Slot-Info aktualisieren
+            }
+            else
+            {
+                MessageBox.Show("Kein Fahrzeug auf dem ausgewählten Parkplatz vorhanden.");
+            }
         }
+
 
         private void btnAddVehicle_Click(object sender, EventArgs e)
         {
-            //Erstelle ein Fahrzeug, mit was für ein Typ es ist, von der combobox "cbxType" und der Namensschild soll von der "tbxNameplate"
-            //Füge das Fahrzeug nur ein, wenn es im Gebäude einen frien platz hat, sonst soll ein anderes Gebäude empfohlen werden, wo es die meisten Freie Plätze hat
-            //Das Fahrzeug soll, auf den nahliegfensten platz, zum Beispiel: Von Level 1 von 1 bis 6 dann Level 2 bis 1 bis 6 war eine Lücke bei 3, was frei ist, somit dort soll das Fahrzeug rein.
-            //(Eventuell eine Methode erstellen hierfür) Die Liste die angezeigt werden soll ist: lblSlotInfo.text = $"Slot: L{level}S{slot}\nSlot state: {slotState}\nNameplate: {nameplate}\nVehicle Type: {Type}"
-            //Note: ("slotState" should be like this: 0 = free; 1 = occupied; 2 = blocked)
-            //Keine Fahrzeuge auf einen Platz mit (slotState = 1 || slotState = 2) bringen.
+            // Fahrzeugtyp und Namensschild aus den Steuerelementen abrufen
+            string vehicleType = cbxType.SelectedItem.ToString();
+            string nameplate = tbxNameplate.Text;
+
+            if (string.IsNullOrEmpty(nameplate))
+            {
+                MessageBox.Show("Bitte geben Sie ein gültiges Namensschild ein.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Fahrzeug erstellen
+            Vehicle newVehicle;
+            if (vehicleType == "Car")
+            {
+                newVehicle = new Car { Type = "Car", CurrentNamePlate = nameplate };
+            }
+            else
+            {
+                newVehicle = new Motorbike { Type = "Motorbike", CurrentNamePlate = nameplate };
+            }
+
+            // Nächstgelegenen freien Parkplatz suchen
+            ParkingSlot freeSlot = FindNearestFreeSlot();
+
+            if (freeSlot != null)
+            {
+                freeSlot.AssignVehicle(newVehicle);
+                freeSlot.ParkingSlotIsFree = false;
+                freeSlot.SlotState = 1; // Setze den Slot als besetzt
+
+                MessageBox.Show($"Fahrzeug {nameplate} wurde auf Slot L{currentLevel}S{freeSlot.ParkingSlotNr} geparkt.");
+                DisplaySlotInfo();
+            }
+            else
+            {
+                // Anderes Gebäude empfehlen
+                int recommendedBuildingIndex = RecommendBuildingWithMostFreeSlots();
+                if (recommendedBuildingIndex != -1)
+                {
+                    MessageBox.Show($"Kein freier Platz verfügbar. Versuchen Sie es im Gebäude {parkingBuildings[recommendedBuildingIndex].BuildingName}, das die meisten freien Plätze hat.");
+                }
+                else
+                {
+                    MessageBox.Show("Kein freier Platz in keinem Gebäude verfügbar.");
+                }
+            }
         }
+
+        // Methode, um den nächstgelegenen freien Parkplatz zu finden
+        private ParkingSlot FindNearestFreeSlot()
+        {
+            var currentLevelObj = parkingBuildings[currentBuildingIndex].Levels[currentLevel - 1];
+
+            for (int i = 0; i < currentLevelObj.ParkingSlots.Count; i++)
+            {
+                if (currentLevelObj.ParkingSlots[i].SlotState == 0)
+                {
+                    return currentLevelObj.ParkingSlots[i];
+                }
+            }
+            return null; // Kein freier Parkplatz gefunden
+        }
+
+        // Methode, um das Gebäude mit den meisten freien Plätzen zu empfehlen
+        private int RecommendBuildingWithMostFreeSlots()
+        {
+            int maxFreeSlots = 0;
+            int recommendedIndex = -1;
+
+            for (int i = 0; i < parkingBuildings.Count; i++)
+            {
+                int freeSlots = parkingBuildings[i].Levels.Sum(level => level.ParkingSlots.Count(slot => slot.SlotState == 0));
+
+                if (freeSlots > maxFreeSlots)
+                {
+                    maxFreeSlots = freeSlots;
+                    recommendedIndex = i;
+                }
+            }
+            return recommendedIndex;
+        }
+
+        // Methode zur Anzeige der Slot-Informationen
+        private void DisplaySlotInfo()
+        {
+            var currentSlot = parkingBuildings[currentBuildingIndex].Levels[currentLevel - 1].ParkingSlots[selectedSlotIndex];
+            string slotState = currentSlot.SlotState == 0 ? "free" : currentSlot.SlotState == 1 ? "occupied" : "blocked";
+            lblSlotInfo.Text = $"Slot: L{currentLevel}S{selectedSlotIndex + 1}\n" +
+                               $"Slot state: {slotState}\n" +
+                               $"Nameplate: {currentSlot.GetCurrentNameplate()}\n" +
+                               $"Vehicle Type: {currentSlot.AssignedVehicle?.Type ?? "None"}";
+
+            // Zeige den Remove-Button nur, wenn der Slot besetzt ist
+            btnRemove.Visible = currentSlot.SlotState == 1;
+        }
+
 
         private void cbxType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Man kann zwsichen "Car" und "Motorbike" wählen, bei der combobox "cbxType", standart soll "Car" sein
+            if (cbxType.SelectedIndex == -1) // Wenn nichts ausgewählt ist, Standard auf "Car" setzen
+            {
+                cbxType.SelectedIndex = 0;
+            }
         }
+
+
+        //private int selectedSlotIndex = 0;
 
         private void btnNextSlot_Click(object sender, EventArgs e)
         {
-            //index++
+            var currentLevelObj = parkingBuildings[currentBuildingIndex].Levels[currentLevel - 1];
+
+            // Index erhöhen und sicherstellen, dass er innerhalb der Grenzen bleibt
+            if (currentLevelObj.ParkingSlots.Count > 0)
+            {
+                selectedSlotIndex = (selectedSlotIndex + 1) % currentLevelObj.ParkingSlots.Count;
+                DisplaySlotInfo();
+            }
         }
 
         private void btnPrevSlot_Click(object sender, EventArgs e)
         {
-            //index--
+            var currentLevelObj = parkingBuildings[currentBuildingIndex].Levels[currentLevel - 1];
+
+            // Index verringern und sicherstellen, dass er innerhalb der Grenzen bleibt
+            if (currentLevelObj.ParkingSlots.Count > 0)
+            {
+                selectedSlotIndex = (selectedSlotIndex - 1 + currentLevelObj.ParkingSlots.Count) % currentLevelObj.ParkingSlots.Count;
+                DisplaySlotInfo();
+            }
         }
+
         #endregion
     }
 }
